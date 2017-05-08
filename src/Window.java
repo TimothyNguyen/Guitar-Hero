@@ -1,21 +1,14 @@
 import javax.swing.JFrame;
 
-public class Window extends JFrame{
+public class Window {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public Window() {
-		this.setTitle("Guitar Hero");
-		this.setSize(400, 400);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
-	}
-	
 	public static void main(String[] args) {
-		new Window();
+		JFrame frame = new JFrame("Guitar Hero");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setContentPane(new GamePanel());
+		frame.setResizable(false);
+		frame.pack();
+		frame.setVisible(true);
 	}
 	
 }
