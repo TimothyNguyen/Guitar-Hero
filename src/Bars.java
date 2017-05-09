@@ -33,6 +33,7 @@ public class Bars {
 		for(int i = 0; i < barLines.size(); i++) {
 			g.draw(barLines.get(i));
 		}
+		
 		for(int i = 0; i < barLines.size(); i++) {
 			double y1 = barLines.get(i).getY1();
 			double y2 = barLines.get(i).getY2();
@@ -41,7 +42,6 @@ public class Bars {
 				barLines.get(i).setLine(x1, 50, x2, 50);
 			}
 		}
+		
 	}
-	
-
 }

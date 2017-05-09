@@ -13,6 +13,10 @@ public class Guitar {
 	private GuitarString str3;
 	private GuitarString str4;
 	private Bars bars;
+	private Ring red;
+	private Ring yellow;
+	private Ring green;
+	private Ring blue;
 	
 	public Guitar() {
 		this.width = 200;
@@ -26,6 +30,10 @@ public class Guitar {
 		str3 = new GuitarString(x + 120, Color.GREEN);
 		str4 = new GuitarString(x + 170, Color.BLUE);
 		bars = new Bars(width, height);
+		red = new Ring(x + 5, Color.RED);
+		yellow = new Ring(x + 55, Color.YELLOW);
+		green = new Ring(x + 105, Color.GREEN);
+		blue = new Ring(x + 155, Color.BLUE);
 	}
 	
 	public int getGuitarX(){
@@ -47,12 +55,14 @@ public class Guitar {
 	public void render(Graphics2D g){
 		g.setColor(color);
 		g.fill(guitar_board);
+		red.render(g);
+		yellow.render(g);
+		green.render(g);
+		blue.render(g);
 		str1.render(g);
 		str2.render(g);
 		str3.render(g);
 		str4.render(g);
 		bars.render(g);
 	}
-	
-	
 }
