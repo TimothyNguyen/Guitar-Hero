@@ -1,8 +1,11 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
@@ -26,11 +29,14 @@ public class GamePanel extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		Graphics2D settings = (Graphics2D)g; 
-		settings.setColor(Color.BLACK);
-		settings.fillRect(0, 0, boardWidth, boardHeight);
+		try {
+			Image bg = ImageIO.read(new File("crowd.jpg"));
+			Image img = bg.getScaledInstance(boardWidth, boardHeight, Image.SCALE_DEFAULT);
+			settings.drawImage(img, 0, 0, null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		guitar.render(settings);
 	}
-	
-	
-	
 }

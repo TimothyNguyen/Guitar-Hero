@@ -9,7 +9,7 @@ public class GuitarString {
 	private Color color;
 	
 	public GuitarString(int x, Color color) {
-		this.x = x;
+		this.setX(x);
 		this.y = 50;
 		string = new Rectangle(x, y, 15, 700);
 		this.color = color;
@@ -20,6 +20,14 @@ public class GuitarString {
 	public void render(Graphics2D g){
 		g.setColor(color);
 		g.fill(string);
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
 	}
 	
 }
