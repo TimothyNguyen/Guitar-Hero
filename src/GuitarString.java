@@ -10,8 +10,8 @@ public class GuitarString {
 	
 	public GuitarString(int x, Color color) {
 		this.setX(x);
-		this.y = 50;
-		string = new Rectangle(x, y, 15, 700);
+		this.y = 25;
+		string = new Rectangle(x, y-5, 15, 735);
 		this.color = color;
 	}
 	

@@ -39,4 +39,5 @@ public class GamePanel extends JPanel{
 		}
 		guitar.render(settings);
 	}
+	
 }

@@ -16,9 +16,9 @@ public class Guitar {
 	
 	public Guitar() {
 		this.width = 200;
-		this.height = 700;
+		this.height = 740;
 		this.x = GamePanel.getBoardWidth()/2 - (width/2);
-		this.y = GamePanel.getBoardHeight()/2 - (height/2);
+		this.y = GamePanel.getBoardHeight()/2 - (height/2) - 10;
 		this.color = new Color(153, 76, 0);
 		guitar_board = new Rectangle(x, y, width, height);
 		str1 = new GuitarString(x + 20, Color.RED);
