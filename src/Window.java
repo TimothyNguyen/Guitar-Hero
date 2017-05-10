@@ -1,21 +1,45 @@
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 import javax.swing.JFrame;
 
-public class Window extends JFrame{
+public class Window {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public Window() {
-		this.setTitle("Guitar Hero");
-		this.setSize(400, 400);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setVisible(true);
+	public static void main(String[] args) {
+		JFrame frame = new JFrame("Guitar Hero");
+		GamePanel panel = new GamePanel();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setContentPane(panel);
+		frame.setResizable(false);
+		frame.pack();
+        // Used to execute code after a given delay
+        // The attribute is corePoolSize - the number of threads to keep in 
+        // the pool, even if they are idle
+        
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(5);
+		
+        // Method to execute, initial delay, subsequent delay, time unit
+        
+		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 20L, TimeUnit.MILLISECONDS);
+		frame.setVisible(true);
 	}
 	
-	public static void main(String[] args) {
-		new Window();
+}
+
+class RepaintBoard implements Runnable {
+	
+	GamePanel thePanel;
+	
+	public RepaintBoard(GamePanel thePanel){
+		this.thePanel = thePanel;
+	}
+
+	@Override
+	public void run() {
+		
+		// Redraws the game board
+		thePanel.repaint();
+		
 	}
 	
 }
