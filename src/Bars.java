@@ -14,12 +14,12 @@ public class Bars {
 	
 	public Bars(int width, int height) {
 		barLines = new ArrayList<>();
-		color = Color.BLACK;
+		color = Color.DARK_GRAY;
 		this.width = width;
 		this.height = height;
 		x1 = GamePanel.getBoardWidth()/2 - (width/2);
 		x2 = GamePanel.getBoardWidth()/2 - (width/2) + width;
-		for(int y = 50; y < height; y += 100) {
+		for(int y = 50; y < height; y += 106) {
 			barLines.add(new Line2D.Double(x1, y, x2, y));
 		}
 	}
@@ -28,7 +28,7 @@ public class Bars {
 	
 	public void render(Graphics2D g){
 		g.setColor(color);
-		Stroke stroke = new BasicStroke(10, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
+		Stroke stroke = new BasicStroke(8, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
 		g.setStroke(stroke);
 		for(int i = 0; i < barLines.size(); i++) {
 			g.draw(barLines.get(i));

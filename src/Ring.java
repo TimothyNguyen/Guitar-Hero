@@ -13,8 +13,8 @@ public class Ring {
 	
 	public Ring(int x, Color color) {
 		this.x = x;
-		this.y = 700;
-		ellipse = new Ellipse2D.Double(x, y, 45, 30);
+		this.y = 680;
+		ellipse = new Ellipse2D.Double(x, y, 45, 40);
 		this.color = color;
 	}
 	

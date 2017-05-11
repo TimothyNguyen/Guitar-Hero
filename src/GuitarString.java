@@ -11,7 +11,7 @@ public class GuitarString {
 	public GuitarString(int x, Color color) {
 		this.setX(x);
 		this.y = 25;
-		string = new Rectangle(x, y-5, 15, 680);
+		string = new Rectangle(x, y-5, 12, 660);
 		this.color = color;
 	}
 	
