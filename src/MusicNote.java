@@ -19,3 +19,17 @@ public class MusicNote {
 	}
 	
 }
+
+/**
+ *
+ * Note - color, length, where it will display (time/speed)
+ * separate Thread - time? (maybe)
+ * ArrayList<Note, Chords>
+ * 
+ * Sound - we don't care now
+ * 
+ * Score system
+ * 
+ * Input to computer 
+ * 
+ */
