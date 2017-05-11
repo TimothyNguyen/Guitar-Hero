@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
@@ -16,11 +17,14 @@ public class GamePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private static int boardWidth = 1450, boardHeight = 800;
 	private Guitar guitar;
+	private ScoreBoard board;
+
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(boardWidth, boardHeight));
 		this.setFocusable(true);
 		guitar = new Guitar();
+		board = new ScoreBoard();
 	}
 	
 	public static int getBoardWidth()  { return boardWidth;  }
@@ -38,6 +42,7 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
+		board.render(settings);
 	}
 	
 }
