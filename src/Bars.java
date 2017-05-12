@@ -11,10 +11,12 @@ public class Bars {
 	private Color color;
 	private int width, height;
 	private int x1, x2;
+	private double speed;
 	
-	public Bars(int width, int height) {
+	public Bars(int width, int height, double speed) {
 		barLines = new ArrayList<>();
 		color = Color.DARK_GRAY;
+		this.speed = speed;
 		this.width = width;
 		this.height = height;
 		x1 = GamePanel.getBoardWidth()/2 - (width/2);
@@ -37,7 +39,7 @@ public class Bars {
 		for(int i = 0; i < barLines.size(); i++) {
 			double y1 = barLines.get(i).getY1();
 			double y2 = barLines.get(i).getY2();
-			barLines.get(i).setLine(x1, y1 + 10, x2, y2 + 10);
+			barLines.get(i).setLine(x1, y1 + speed/10, x2, y2 + speed/10);
 			if(y1 > height) {
 				barLines.get(i).setLine(x1, 50, x2, 50);
 			}
