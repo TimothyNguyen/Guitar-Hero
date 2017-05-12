@@ -36,7 +36,7 @@ public class Guitar {
 		str3 = new GuitarString(x + 144, Color.GREEN);
 		str4 = new GuitarString(x + 204, Color.BLUE);
 		str5 = new GuitarString(x + 264, Color.ORANGE);
-		bars = new Bars(width, height);
+		bars = new Bars(width, height, 120);
 		red = new Ring(x + 7, Color.RED);
 		yellow = new Ring(x + 67, Color.YELLOW);
 		green = new Ring(x + 127, Color.GREEN);
