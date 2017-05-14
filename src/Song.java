@@ -1,13 +1,16 @@
-import java.util.HashMap;
-import java.util.Timer;
+import java.util.ArrayList;
 
 public class Song {	
 	
 	private String title;
-	private HashMap<Chord, Timer> song;
+	private ArrayList<Chord> chords;
 	
 	public Song(String title) {
 		this.title = title;
-		song = new HashMap<>();
+		chords = new ArrayList<>();
+	}
+	
+	public ArrayList<Chord> getChord() {
+		return chords;
 	}
 }
