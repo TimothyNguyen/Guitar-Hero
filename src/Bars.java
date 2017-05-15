@@ -21,7 +21,7 @@ public class Bars {
 		this.height = height;
 		x1 = GamePanel.getBoardWidth()/2 - (width/2);
 		x2 = GamePanel.getBoardWidth()/2 - (width/2) + width;
-		for(int y = 50; y < height; y += 100) {
+		for(int y = 50; y < height; y += 250) {
 			barLines.add(new Line2D.Double(x1, y, x2, y));
 		}
 		song = new FirstSong();
@@ -40,7 +40,7 @@ public class Bars {
 		for(int i = 0; i < barLines.size(); i++) {
 			double y1 = barLines.get(i).getY1();
 			double y2 = barLines.get(i).getY2();
-			barLines.get(i).setLine(x1, y1 + 1.5625, x2, y2 + 1.5625);
+			barLines.get(i).setLine(x1, y1 + 5, x2, y2 + 5);
 			if(y1 > height) {
 				barLines.get(i).setLine(x1, 50, x2, 50);
 			}

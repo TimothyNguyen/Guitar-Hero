@@ -38,7 +38,7 @@ public class Chord {
 		for(int i = 0; i < chord.size(); i++) {
 			Ellipse2D.Double note = chord.get(i).getEllipse();
 			double x = note.getX();
-			double y = note.getY() + 1.625;
+			double y = note.getY() + 5;
 			note.setFrame(x, y, 45, 40);
 		}
 	}

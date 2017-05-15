@@ -27,8 +27,6 @@ public class Window {
 
 
 class RepaintBoard implements Runnable {
-	final double beats_per_minute = 1000000000000.0;
-	final double SKIP_TICKS = 1000 / beats_per_minute;
 	GamePanel thePanel;
 
 	public RepaintBoard(GamePanel thePanel){
@@ -37,16 +35,6 @@ class RepaintBoard implements Runnable {
 
 	@Override
 	public void run() {
-		double next_game_tick = System.currentTimeMillis();
-
-		while (true) {
-			while (System.currentTimeMillis() > next_game_tick) {
-
-				// Redraws the game board
-				thePanel.repaint();
-				next_game_tick += SKIP_TICKS;
-
-			}
-		}
+		thePanel.repaint();
 	}
 }
