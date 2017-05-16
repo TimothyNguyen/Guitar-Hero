@@ -13,4 +13,12 @@ public class Song {
 	public ArrayList<Chord> getChord() {
 		return chords;
 	}
+	
+	public Chord remove() {
+		if(!chords.isEmpty()) {
+			return chords.remove(0);
+		}
+		return null;
+	}
+	
 }

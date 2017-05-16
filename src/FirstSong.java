@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.util.Timer;
 
 public class FirstSong extends Song{
 	
@@ -10,12 +11,14 @@ public class FirstSong extends Song{
 	
 	public void writeSong() {
 		getChord().add(new Chord(new MusicNote(Color.GREEN, 1, "A"), new MusicNote(Color.RED, 1, "A")));
+		getChord().add(new Chord(new MusicNote(Color.BLUE, 1, "A"), new MusicNote(Color.YELLOW, 1, "A")));
 	}
+	
 	
 	public void render(Graphics2D g) {
 		for(int i = 0; i < getChord().size(); i++)  {
 			getChord().get(i).render(g);
 		}
 	}
-	
+
 }
