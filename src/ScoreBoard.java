@@ -1,40 +1,31 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-public class ScoreBoard extends JPanel{
-	private int xCoor, yCoor;
+public class ScoreBoard{
+
 	private int width, height;
 	private Rectangle scoreBoard;
-	private Color color;
 
-	private JLabel title = new JLabel("SCORE");
-	
-	
 	public ScoreBoard(){
-		this.width = 275;
-		this.height = 300;
-		this.xCoor = GamePanel.getBoardWidth() - GamePanel.getBoardWidth()/3;
-		this.yCoor= GamePanel.getBoardHeight() - 400;
-		this.color = new Color(153, 76, 0);
+		this.width = 400;
+		this.height = 50;
 		
-		scoreBoard = new Rectangle(xCoor, yCoor, width, height);
+	
+		scoreBoard = new Rectangle(75, 70, width, height);
 		
-		title.setBounds(xCoor, yCoor, 20, 20);
-		title.setOpaque(true);
-		add(title);
 
-		
 	}
 	
 	public void render(Graphics2D g){
-		g.setColor(color);
+		g.setColor(Color.BLACK);
 		g.fill(scoreBoard);
-		
+		g.setColor(Color.RED);
+		g.setFont(new Font("TimesRoman", Font.BOLD, 30));
+		g.drawString("SCORE: ",55, 50); 
 		
 	}
 }
