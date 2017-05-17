@@ -15,11 +15,12 @@ public class Window {
 		// Used to execute code after a given delay
 		// The attribute is corePoolSize - the number of threads to keep in 
 		// the pool, even if they are idle
-
-		ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(5);
-
+		
+		ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10);
+		
 		// Method to execute, initial delay, subsequent delay, time unit
-		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 1L, TimeUnit.NANOSECONDS);
+		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 20L, TimeUnit.NANOSECONDS);
+		
 		frame.setVisible(true);
 	}
 
@@ -28,7 +29,7 @@ public class Window {
 
 class RepaintBoard implements Runnable {
 	GamePanel thePanel;
-
+	
 	public RepaintBoard(GamePanel thePanel){
 		this.thePanel = thePanel;
 	}

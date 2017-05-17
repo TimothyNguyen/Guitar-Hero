@@ -18,12 +18,14 @@ public class GamePanel extends JPanel{
 	private static int boardWidth = 1450, boardHeight = 800;
 	private Guitar guitar;
 	private ArrayList<Song> songList;
+	private NewSong song;
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(boardWidth, boardHeight));
 		this.setFocusable(true);
 		guitar = new Guitar();
 		songList = new ArrayList<>();
+		song = new NewSong();
 	}
 	
 	public static int getBoardWidth()  { return boardWidth;  }
@@ -41,6 +43,6 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
+		song.render(settings);
 	}
-	
 }
