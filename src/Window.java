@@ -10,24 +10,24 @@ public class Window {
 		GamePanel panel = new GamePanel();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(panel);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.pack();
-        // Used to execute code after a given delay
-        // The attribute is corePoolSize - the number of threads to keep in 
-        // the pool, even if they are idle
-        
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(5);
+		// Used to execute code after a given delay
+		// The attribute is corePoolSize - the number of threads to keep in 
+		// the pool, even if they are idle
 		
-        // Method to execute, initial delay, subsequent delay, time unit
-        
-		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 20L, TimeUnit.MILLISECONDS);
+		ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10);
+		
+		// Method to execute, initial delay, subsequent delay, time unit
+		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 20L, TimeUnit.NANOSECONDS);
+		
 		frame.setVisible(true);
 	}
-	
+
 }
 
+
 class RepaintBoard implements Runnable {
-	
 	GamePanel thePanel;
 	
 	public RepaintBoard(GamePanel thePanel){
@@ -36,10 +36,6 @@ class RepaintBoard implements Runnable {
 
 	@Override
 	public void run() {
-		
-		// Redraws the game board
 		thePanel.repaint();
-		
 	}
-	
 }

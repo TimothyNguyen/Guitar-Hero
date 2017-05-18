@@ -10,7 +10,9 @@ public class Bars {
 	private ArrayList<Line2D.Double> barLines;
 	private Color color;
 	private int width, height;
-	private int x1, x2;
+	private double x1, x2;
+	private double speed = 100;
+	// private FirstSong song;
 	
 	public Bars(int width, int height) {
 		barLines = new ArrayList<>();
@@ -19,9 +21,10 @@ public class Bars {
 		this.height = height;
 		x1 = GamePanel.getBoardWidth()/2 - (width/2);
 		x2 = GamePanel.getBoardWidth()/2 - (width/2) + width;
-		for(int y = 50; y < height; y += 106) {
+		for(int y = 50; y < height; y += 250) {
 			barLines.add(new Line2D.Double(x1, y, x2, y));
 		}
+		// song = new FirstSong();
 	}
 	
 	public Color getColor() { return color; }
@@ -33,7 +36,7 @@ public class Bars {
 		for(int i = 0; i < barLines.size(); i++) {
 			g.draw(barLines.get(i));
 		}
-		
+		// song.render(g);
 		for(int i = 0; i < barLines.size(); i++) {
 			double y1 = barLines.get(i).getY1();
 			double y2 = barLines.get(i).getY2();
@@ -42,6 +45,5 @@ public class Bars {
 				barLines.get(i).setLine(x1, 50, x2, 50);
 			}
 		}
-		
 	}
 }

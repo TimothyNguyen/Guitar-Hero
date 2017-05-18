@@ -22,9 +22,10 @@ public class Guitar {
 	private Ring blue;
 	private Ring orange;
 	
+	
 	public Guitar() {
 		this.width = 300;
-		this.height = 780;
+		this.height = 800;
 		this.x = GamePanel.getBoardWidth()/2 - (width/2);
 		this.y = GamePanel.getBoardHeight()/2 - (height/2);
 		this.color = new Color(153, 76, 0);

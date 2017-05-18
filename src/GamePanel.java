@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JLabel;
@@ -17,6 +18,9 @@ public class GamePanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private static int boardWidth = 1450, boardHeight = 800;
 	private Guitar guitar;
+	private ArrayList<Song> songList;
+	private NewSong song;
+
 	private ScoreBoard board;
 
 	
@@ -24,6 +28,8 @@ public class GamePanel extends JPanel{
 		this.setPreferredSize(new Dimension(boardWidth, boardHeight));
 		this.setFocusable(true);
 		guitar = new Guitar();
+		songList = new ArrayList<>();
+		song = new NewSong();
 		board = new ScoreBoard();
 	}
 	
@@ -42,7 +48,7 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
+    song.render(settings);
 		board.render(settings);
 	}
-	
 }
