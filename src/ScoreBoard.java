@@ -23,9 +23,9 @@ public class ScoreBoard{
 	public void render(Graphics2D g){
 		g.setColor(Color.BLACK);
 		g.fill(scoreBoard);
-		g.setColor(Color.RED);
-		g.setFont(new Font("TimesRoman", Font.BOLD, 30));
-		g.drawString("SCORE: ",55, 50); 
+		g.setColor(Color.BLUE);
+		g.setFont(new Font("TimesRoman", Font.BOLD, 40));
+		g.drawString("Score: ",55, 50); 
 		
 	}
 }
