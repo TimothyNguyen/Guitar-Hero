@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel{
@@ -19,6 +20,9 @@ public class GamePanel extends JPanel{
 	private Guitar guitar;
 	private ArrayList<Song> songList;
 	private NewSong song;
+
+	private ScoreBoard board;
+
 	
 	public GamePanel() {
 		this.setPreferredSize(new Dimension(boardWidth, boardHeight));
@@ -26,6 +30,7 @@ public class GamePanel extends JPanel{
 		guitar = new Guitar();
 		songList = new ArrayList<>();
 		song = new NewSong();
+		board = new ScoreBoard();
 	}
 	
 	public static int getBoardWidth()  { return boardWidth;  }
@@ -43,6 +48,7 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
-		song.render(settings);
+    song.render(settings);
+		board.render(settings);
 	}
 }
