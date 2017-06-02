@@ -6,7 +6,7 @@ public class QuanSong implements Song{
 	private ArrayList<Chord> chordList;
 	private long startTime;
 	private long estimatedTime;
-	
+
 	public QuanSong() {
 		// super("Here Comes The Sun");
 		chordList = new ArrayList<>();
@@ -14,7 +14,7 @@ public class QuanSong implements Song{
 		startTime = System.currentTimeMillis();
 		estimatedTime = System.currentTimeMillis() - startTime;
 	}
-	
+
 	private void writeSong(int numChords) {
 		for(int i = 0; i < numChords; i++) {
 			int notes = numberOfNotesInAChord();
@@ -39,16 +39,19 @@ public class QuanSong implements Song{
 	private int numberOfNotesInAChord() {
 		return (int)(Math.random() * 5) + 1;
 	}
-	
+
 	public void render(Graphics2D g) {
 		for(int i = 0; i < chordList.size(); i++) {
 			Chord chord = chordList.get(i);
-			if(estimatedTime >= chord.getTimeToStart()) {
-				chord.render(g);
+			if(chord.getY() <= 730) {
+				if(estimatedTime >= chord.getTimeToStart()) {
+					chord.render(g);
+				}
 			}
 			// System.out.println(estimatedTime);
 			estimatedTime++;
+
 		}
 	}
-	
+
 }

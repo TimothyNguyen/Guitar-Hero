@@ -52,7 +52,7 @@ public class Chord {
 	}
 	
 	public double getY() {
-		return chord.get(0).getY();
+		return chord.get(0).getEllipse().getY();
 	}
 	
 	public void render(Graphics2D g) {

@@ -51,7 +51,7 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
-		songList.get(0).render(settings);
+		songList.get(1).render(settings);
 		board.render(settings);
 	}
 }
