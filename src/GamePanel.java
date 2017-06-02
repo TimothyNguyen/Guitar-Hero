@@ -19,8 +19,6 @@ public class GamePanel extends JPanel{
 	private static int boardWidth = 1450, boardHeight = 800;
 	private Guitar guitar;
 	private ArrayList<Song> songList;
-	private NewSong song;
-
 	private ScoreBoard board;
 
 	
@@ -29,12 +27,17 @@ public class GamePanel extends JPanel{
 		this.setFocusable(true);
 		guitar = new Guitar();
 		songList = new ArrayList<>();
-		song = new NewSong();
 		board = new ScoreBoard();
+		addSongs();
 	}
 	
 	public static int getBoardWidth()  { return boardWidth;  }
 	public static int getBoardHeight() { return boardHeight; } 
+	
+	public void addSongs() {
+		songList.add(new NewSong());
+		songList.add(new QuanSong());
+	}
 	
 	
 	public void paintComponent(Graphics g) {
@@ -48,7 +51,7 @@ public class GamePanel extends JPanel{
 			e.printStackTrace();
 		}
 		guitar.render(settings);
-    song.render(settings);
+		songList.get(0).render(settings);
 		board.render(settings);
 	}
 }

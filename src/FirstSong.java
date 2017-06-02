@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class FirstSong extends Song {
+public class FirstSong implements Song {
 	
 	private ArrayList<Chord> chords;
 	
 	public FirstSong() {
-		super("Here Comes The Sun");
 		chords = new ArrayList<>();
 		writeSong();
 	}
@@ -34,6 +33,12 @@ public class FirstSong extends Song {
 	*/
 	private double getTimeToRun(int index) {
 		return chords.get(index).getTimeToStart();
+	}
+
+	@Override
+	public void render(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

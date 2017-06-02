@@ -7,6 +7,16 @@ public class Chord {
 	private ArrayList<MusicNote> chord;
 	private double time;
 	
+	public Chord(MusicNote note1, MusicNote note2, MusicNote note3, MusicNote note4, MusicNote note5, double time) {
+		chord = new ArrayList<>();
+		chord.add(note1);
+		chord.add(note2);
+		chord.add(note3);
+		chord.add(note4);
+		chord.add(note5);
+		this.time = time;
+	}
+	
 	public Chord(MusicNote note1, MusicNote note2, MusicNote note3, MusicNote note4, double time) {
 		chord = new ArrayList<>();
 		chord.add(note1);
@@ -32,6 +42,7 @@ public class Chord {
 	}
 	
 	public Chord(MusicNote note1, double time) {
+		chord = new ArrayList<>();
 		chord.add(note1);
 		this.time = time;
 	}
@@ -51,7 +62,7 @@ public class Chord {
 		for(int i = 0; i < chord.size(); i++) {
 			Ellipse2D.Double note = chord.get(i).getEllipse();
 			double x = note.getX();
-			double y = note.getY() + 10;
+			double y = note.getY() + 13.5;
 			note.setFrame(x, y, 45, 40);
 		}
 	}

@@ -2,6 +2,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import com.sun.glass.events.KeyEvent;
+
 public class Guitar {
 
 	private int x, y;
@@ -21,8 +23,8 @@ public class Guitar {
 	private Ring green;
 	private Ring blue;
 	private Ring orange;
-	
-	
+
+
 	public Guitar() {
 		this.width = 300;
 		this.height = 800;
@@ -44,23 +46,23 @@ public class Guitar {
 		blue = new Ring(x + 187, Color.BLUE);
 		orange = new Ring(x + 247, Color.ORANGE);
 	}
-	
+
 	public int getGuitarX(){
 		return x;
 	}
-	
+
 	public int getGuitarY() {
 		return y;
 	}
-	
+
 	public int getGuitarWidth() {
 		return width;
 	}	
-	
+
 	public int getGuitarHeight() {
 		return height;
 	}
-	
+
 	public void render(Graphics2D g){
 		g.setColor(colorBorder);
 		g.fill(guitarBorder);
@@ -78,5 +80,12 @@ public class Guitar {
 		str4.render(g);
 		str5.render(g);
 		bars.render(g);
+		
+		boolean[] arr = Window.getList();
+		if(arr[0]) red.fillEllipse(g);
+		if(arr[1]) yellow.fillEllipse(g);
+		if(arr[2]) green.fillEllipse(g);
+		if(arr[3]) blue.fillEllipse(g);
+		if(arr[4]) orange.fillEllipse(g);
 	}
 }
