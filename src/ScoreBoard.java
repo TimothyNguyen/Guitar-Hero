@@ -13,11 +13,7 @@ public class ScoreBoard{
 	public ScoreBoard(){
 		this.width = 400;
 		this.height = 50;
-		
-	
 		scoreBoard = new Rectangle(75, 70, width, height);
-		
-
 	}
 	
 	public void render(Graphics2D g){

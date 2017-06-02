@@ -1,22 +1,7 @@
+import java.awt.Graphics2D;
 
-public class Song {	
+public interface Song {	
 	
-	private String title;
+	public void render(Graphics2D g);
 	
-	public Song(String title) {
-		this.title = title;
-	}
-	
-	/*
-	public ArrayList<Chord> getChord() {
-		return chords;
-	}
-	
-	public Chord remove() {
-		if(!chords.isEmpty()) {
-			return chords.remove(0);
-		}
-		return null;
-	}
-	*/
 }
