@@ -11,11 +11,12 @@ import javax.swing.Timer;
 
 public class Window {
 
-	private static boolean keyHeld = false;
-	private static final ArrayList<Integer> keys = new ArrayList<>();
-	private static final boolean[] theKeys = {false, false, false, false, false};
+	private static final boolean[] theKeys = {false, false, false, false, false, false};
 	
 	public static void main(String[] args) {
+		
+		
+		
 		JFrame frame = new JFrame("Guitar Hero");				// frame, has a title of Guitar Hero
 		GamePanel panel = new GamePanel();						// Set up GamePanel (class that we created)
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,19 +28,10 @@ public class Window {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-				/*
-				 keys.add(e.getKeyCode());
-				 if(keys.size() >= 1) {
-					 keyHeld = true;
-					 System.out.println("Hello");
-				 }
-				 */
 				if(e.getKeyCode() == KeyEvent.VK_A) {
 					theKeys[0] = true;
 				}
@@ -55,17 +47,14 @@ public class Window {
 				if(e.getKeyCode() == KeyEvent.VK_G) {
 					theKeys[4] = true;
 				}
+				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+					theKeys[5] = true;
+				}
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
-				/*
-				keys.remove(e.getKeyCode());
-				if(keys.size() == 0) {
-					keyHeld = false;
-				}
-				*/
 				if(e.getKeyCode() == KeyEvent.VK_A) {
 					theKeys[0] = false;
 				}
@@ -81,8 +70,10 @@ public class Window {
 				if(e.getKeyCode() == KeyEvent.VK_G) {
 					theKeys[4] = false;
 				}
+				if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+					theKeys[5] = false;
+				}
 			}
-
 		});
 		/**
 		 * Used to execute code after a given delay
@@ -112,20 +103,6 @@ public class Window {
 	public static boolean[] getList() {
 		return theKeys;
 	}
-	
-/*
-	public static boolean isKeyHeld() {
-		return keyHeld;
-	}
-	
-	public static ArrayList<Integer> getList() {
-		return keys;
-	}
-	*/
-	
-	
-	
-	
 }
 
 class RepaintBoard implements Runnable {

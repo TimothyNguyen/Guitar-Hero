@@ -70,6 +70,19 @@ public class MusicNote {
 		return noteLength;
 	}
 	
+	public int getColorNum() {
+		if(color.equals(Color.RED)) {
+			return 0;
+		}else if(color.equals(Color.YELLOW)) {
+			return 1;
+		}else if(color.equals(Color.GREEN)) {
+			return 2;
+		}else if(color.equals(Color.BLUE)) {
+			return 3;
+		}
+		return 4; 
+	}
+	
 	public void render(Graphics2D g){
 		g.setColor(color);
 		Stroke stroke = new BasicStroke(10, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
@@ -108,5 +121,6 @@ public class MusicNote {
  * Score system
  * 
  * Input to computer 
+ * 
  * 
  */

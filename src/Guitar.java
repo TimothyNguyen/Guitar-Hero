@@ -87,5 +87,6 @@ public class Guitar {
 		if(arr[2]) green.fillEllipse(g);
 		if(arr[3]) blue.fillEllipse(g);
 		if(arr[4]) orange.fillEllipse(g);
+
 	}
 }

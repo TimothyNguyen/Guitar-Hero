@@ -47,6 +47,10 @@ public class Chord {
 		this.time = time;
 	}
 	
+	public ArrayList<MusicNote> getChord() {
+		return chord;
+	}
+	
 	public double getTimeToStart() {
 		return time;
 	}
@@ -56,9 +60,11 @@ public class Chord {
 	}
 	
 	public void render(Graphics2D g) {
+		
 		for(int i = 0; i < chord.size(); i++) {
 			chord.get(i).render(g);
 		}
+		
 		for(int i = 0; i < chord.size(); i++) {
 			Ellipse2D.Double note = chord.get(i).getEllipse();
 			double x = note.getX();

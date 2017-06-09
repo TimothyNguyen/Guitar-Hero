@@ -1,0 +1,85 @@
+Provided by:
+http://www.music-software-development.com/midi-tutorial.html
+
+Midi Messages - transmit real time info for the playback of a 
+piece of music
+
+Midi messages sent to one byte/8bits
+Status Byte(1) - set to 1, Data Byte(7) set to 0
+
+- There is note on:
+"CCCC" is the MIDI channel (from 0 to 15)
+"PPP PPPP" is the pitch value (from 0 to 127)
+"VVV VVVV" is the velocity value (from 0 to 127)
+Note Off:
+Status byte : 1000 CCCC
+Data byte 1 : 0PPP PPPP
+Data byte 2 : 0VVV VVVV
+
+Part 3: Notes and Chords
+t=0 : 0x90 - 0x40 - 0x40 (Start of E3 note, pitch = 64)
+t=0 : 0x90 - 0x43 - 0x40 (Start of G3 note, pitch= 67)
+t=1 : 0x80 - 0x43 - 0x00 (End of G3 note, pitch=67)
+t=1 : 0x90 - 0x45 - 0x40 (Start of A3 note, pitch=69)
+t=2 : 0x80 - 0x45 - 0x00 (End of A3 note, pitch=69)
+t=2 : 0x80 - 0x40 - 0x00 (End of E3 note, pitch=64)
+t=2 : 0x90 - 0x3C - 0x40 (Start of C3 note, pitch = 60)
+t=2 : 0x90 - 0x47 - 0x40 (Start of B3 note, pitch= 71)
+t=3 : 0x80 - 0x47 - 0x00 (End of B3 note, pitch= 71)
+t=3 : 0x90 - 0x48 - 0x40 (Start of C4 note, pitch= 72)
+t=4 : 0x80 - 0x48 - 0x00 (End of C4 note, pitch= 72)
+t=4 : 0x80 - 0x3C - 0x40 (End of C3 note, pitch = 60)
+
+Part 4: Selecting Instruments
+General Midi - List of 128 instruments that simplify compatibility
+
+MIDI Tutorial Part 5 - Drum
+- general midi: channel 10
+0x99 0x23 0x40
+0x99 - status byte
+0x23 - note number used for acoustic bass drum
+0x40 - mezzo forte nuance
+
+Part 6: Using Midi Channels
+16 different channels - with its own status
+
+Part 7: Midi Controllers
+128 Midi Controllers defined, only few are used in practice
+The purpose is to set a value of a parameter in the synthesizer 
+playing the notes
+
+The most common controller numbers are the following:
+
+0 = Sound bank selection (MSB)
+1 = Modulation wheel, often assigned to a vibrato or tremolo effect.
+7 = Volume level of the instrument
+10 = Panoramic (0 = left; 64 = center; 127 = right)
+11 = Expression (sometimes used also for volume control or similar, depending on the synthesizer)
+32 = Sound bank selection (LSB)
+64 = Sustain pedal (0 = no pedal; >= 64 => pedal ON)
+121 = All controllers off (this message clears all the controller values for this channel, back to their default values)
+123 = All notes off (this message stops all the notes that are currently playing)
+
+Instrument Selection - LSB and MSB
+synthesizer may contain one or more sound banks
+You must first activate the new bank and then send the program 
+change message
+
+As the MSB and LSB can range from 0 to 127, there is a total of 
+128 x 128 = 16384 possible sound bank to be selected. 
+
+Part 8 - Pitch Bend
+Status byte : 1110 CCCC
+Data byte 1 : 0LLL LLLL
+Data byte 2 : 0MMM MMMM
+CCCC - Midi Channel
+LLLLLLL - LSB of the pitch bend
+MMMMMMM - MSB
+
+
+
+
+
+
+
+

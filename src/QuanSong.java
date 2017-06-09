@@ -42,16 +42,37 @@ public class QuanSong implements Song{
 
 	public void render(Graphics2D g) {
 		for(int i = 0; i < chordList.size(); i++) {
+			boolean[] arr = Window.getList();
 			Chord chord = chordList.get(i);
-			if(chord.getY() <= 730) {
+			if(chord.getY() >= 670 && chord.getY() <= 700 && arr[5]) {
+				boolean allNotesUsed = true;
+				for(int j = 0; j < chord.getChord().size(); j++) {
+					int noteNum = chord.getChord().get(j).getColorNum();
+					if(!arr[noteNum]) {
+						allNotesUsed = false;
+						chord.render(g);
+						break;
+					} else {
+						continue;
+					}
+				}
+				if(allNotesUsed) {
+					chordList.remove(chord);
+					if(i > -1) { // this to prevent accessing -1
+						i--; 
+					}
+				} 
+			} else if(chord.getY() <= 730) {
 				if(estimatedTime >= chord.getTimeToStart()) {
 					chord.render(g);
 				}
+			}  
+			else {
+				chordList.remove(chord);
+				i--;
 			}
 			// System.out.println(estimatedTime);
 			estimatedTime++;
-
 		}
 	}
-
 }
