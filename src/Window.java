@@ -1,22 +1,16 @@
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JFrame;
-import javax.swing.Timer;
 
 public class Window {
 
 	private static final boolean[] theKeys = {false, false, false, false, false, false};
 	
 	public static void main(String[] args) {
-		
-		
-		
+	
 		JFrame frame = new JFrame("Guitar Hero");				// frame, has a title of Guitar Hero
 		GamePanel panel = new GamePanel();						// Set up GamePanel (class that we created)
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,13 +74,13 @@ public class Window {
 		 * The attribute is corePoolSize - the number of threads to keep in 
 		 * the pool, even if they are idle
 		 */
-		// ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10);
+		ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10);
 
 		// Method to execute, initial delay, subsequent delay, time unit
-		// executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 1L, TimeUnit.NANOSECONDS);
-
+		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 1L, TimeUnit.NANOSECONDS);
+		
 		// int delay = 1000/60;
-
+/*
 		Timer timer = new Timer(1, new ActionListener() {
 
 			@Override
@@ -99,7 +93,11 @@ public class Window {
 		timer.start();	
 		frame.setVisible(true);
 	}
-
+	
+*/
+		frame.setVisible(true);
+	}
+		
 	public static boolean[] getList() {
 		return theKeys;
 	}

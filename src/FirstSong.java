@@ -41,28 +41,5 @@ public class FirstSong implements Song {
 		
 	}
 	
-	
-	
-		// Timer timer = new Timer();
-		// timer.schedule(() -> System.out.println("hi"), 45000);
-	
-	/*
-	public void render(Graphics2D g) {
-		
-		Timer timer = new Timer();
-		timer.schedule(new TimerTask() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				getChord().get(0).render(g);
-			}
-		}, 1000);
-		
-		for(int i = 0; i < getChord().size(); i++)  {
-			getChord().get(i).render(g);
-		}
-		
-	}
-*/
+
 }

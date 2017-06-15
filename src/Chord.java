@@ -1,6 +1,10 @@
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+
+import javax.sound.midi.MidiUnavailableException;
 
 public class Chord {
 
@@ -58,7 +62,7 @@ public class Chord {
 	public double getY() {
 		return chord.get(0).getEllipse().getY();
 	}
-	
+
 	public void render(Graphics2D g) {
 		
 		for(int i = 0; i < chord.size(); i++) {
@@ -70,6 +74,14 @@ public class Chord {
 			double x = note.getX();
 			double y = note.getY() + 13.5;
 			note.setFrame(x, y, 45, 40);
+			if(chord.get(i).getNoteLength() > 0.25) {
+				/*
+				Rectangle2D.Double elon_note = chord.get(i).getElongatedNote();
+				double e_x = elon_note.getX();
+				double e_y = elon_note.getY() + 13.5;
+				elon_note.setFrame(e_x, e_y, elon_note.getWidth(), elon_note.getHeight());
+				*/
+			}
 		}
 	}
 }

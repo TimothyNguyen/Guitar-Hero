@@ -1,0 +1,81 @@
+Java Sound API
+
+1. Provides methods for converting between various audio 
+   data formats, reading/writing common types of sound files
+2. Doesn't attempt to be a comprehensive sound-file toolkit
+3. Can handle audio transport in streaming, buffered fashion
+   as well as unfashioned
+4. Permits unbuffered transport in playback
+
+Formatted Audio Data - Refers to sound in any of a number 
+of standard formats
+
+AudioFormat object - 
+	Encoding technique, usually pulse code modulation (PCM)
+	Number of channels (1 for mono, 2 for stereo, etc.)
+	Sample rate (number of samples per second, per channel)
+	Number of bits per sample (per channel)
+	Frame rate
+	Frame size in bytes
+	Byte order (big-endian or little-endian)
+PCM - encoding of sound waveform with two PCM encodings
+using linear quantization  of amplitude, and signed/unsigned
+integer values
+
+AudioFileFormat 
+	1. The file type (WAVE, AIFF, etc.)
+	2. The file's length in bytes
+	3. The length, in frames, of the audio data contained in the file
+	4. An AudioFormat object that specifies the data format of 
+	the audio data contained in the file
+	
+AudioSystem - provide methods for reading and writing sounds
+in different file formats/converting 
+AudioInputStream - has some methods to access file's content
+InputStream - encapsulate a series of bytes to be read linearly
+
+Mixer - devices that are represented
+1. Handle one or more streams of audio input/output
+2. Can represent  sound-mixing capabilities that are implemented 
+entirely in software
+Input:
+	1. Source from which the mixer gets for mixing is one
+	or more input ports
+	2. Mixer sends the captured and mixed audio streams to its 
+	targets and it is retrieved
+Output:
+	1. Mixer's source for audio is one or more objects containing
+	buffers into which one or more app write sound data
+	2. Mixer's target is the output ports
+Line:
+	1. Digital audio pipeline
+	2. Can be mono or multichannel
+Audio format – Each data line has an audio format associated 
+			   with its data stream.
+Media position – A data line can report its current position in 
+				 the media, expressed in sample frames. 
+				 This represents the number of sample frames 
+				 captured by or rendered from the data line 
+				 since it was opened.
+Buffer size – This is the size of the data line's internal 
+			  buffer in bytes. For a source data line, the 
+			  internal buffer is one to which data can be 
+			  written, and for a target data line it's one 
+			  from which data can be read.
+Level (the current amplitude of the audio signal)
+Start and stop playback or capture
+Pause and resume playback or capture
+Flush (discard unprocessed data from the queue)
+Drain (block until all unprocessed data has been drained 
+from the queue, and the data line's buffer has become empty)
+Active status – A data line is considered active if it is 
+				engaged in active presentation or capture of 
+				audio data to or from a mixer.
+Events – START and STOP events are produced when active 
+		 presentation or capture of data from or to the data 
+		 line starts or stops.
+	
+TargetDataLine - recieves audio data from mixer
+SourceDataLine - recieves audio data for playback
+		 	   - provide methods for writing data for playback
+Clip - Data line which audio data can be loaded prior to playback

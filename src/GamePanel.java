@@ -39,7 +39,6 @@ public class GamePanel extends JPanel{
 		songList.add(new QuanSong());
 	}
 	
-	
 	public void paintComponent(Graphics g) {
 		Graphics2D settings = (Graphics2D)g; 
 		try {

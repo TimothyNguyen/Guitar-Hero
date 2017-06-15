@@ -42,6 +42,7 @@ public class QuanSong implements Song{
 
 	public void render(Graphics2D g) {
 		for(int i = 0; i < chordList.size(); i++) {
+			// This is where the boolean array from window is from
 			boolean[] arr = Window.getList();
 			Chord chord = chordList.get(i);
 			if(chord.getY() >= 670 && chord.getY() <= 700 && arr[5]) {
@@ -57,7 +58,10 @@ public class QuanSong implements Song{
 					}
 				}
 				if(allNotesUsed) {
+					Synth s = new Synth(chord.getChord(), 100, chord.getChord().get(0).getNoteLength());
+					s.playNote();
 					chordList.remove(chord);
+					ScoreBoard.setScore(50);
 					if(i > -1) { // this to prevent accessing -1
 						i--; 
 					}

@@ -2,8 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import com.sun.glass.events.KeyEvent;
-
 public class Guitar {
 
 	private int x, y;

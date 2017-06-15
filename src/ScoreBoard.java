@@ -9,6 +9,7 @@ public class ScoreBoard{
 
 	private int width, height;
 	private Rectangle scoreBoard;
+	private static int score = 0;
 
 	public ScoreBoard(){
 		this.width = 400;
@@ -21,7 +22,17 @@ public class ScoreBoard{
 		g.fill(scoreBoard);
 		g.setColor(Color.BLUE);
 		g.setFont(new Font("TimesRoman", Font.BOLD, 40));
-		g.drawString("Score: ",55, 50); 
-		
+		g.drawString("Score: " + score,55, 50); 		
 	}
+	
+	public static int getScore() {
+		return score;
+	}
+	
+	public static void setScore(int s) {
+		score += s;
+	}
+	
+	
+	
 }

@@ -18,7 +18,7 @@ public class NewSong implements Song {
 	// o F this
 	public void writeSong() {
 		for(int i = 0; i < 100; i++) {
-			chordList.add(new Chord(new MusicNote(Color.GREEN, 1, "A"), new MusicNote(Color.RED, 1, "A"), 0));
+			chordList.add(new Chord(new MusicNote(Color.GREEN, 1, "A2"), new MusicNote(Color.RED, 1, "C3"), 0));
 			chordList.add(new Chord(new MusicNote(Color.BLUE, 1, "A"), new MusicNote(Color.YELLOW, 1, "A"), 5000));
 			chordList.add(new Chord(new MusicNote(Color.BLUE, 1, "A"), new MusicNote(Color.YELLOW, 1, "A"), 10000));
 			chordList.add(new Chord(new MusicNote(Color.BLUE, 1, "A"), new MusicNote(Color.YELLOW, 1, "A"), 15000));

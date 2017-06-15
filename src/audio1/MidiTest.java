@@ -1,3 +1,4 @@
+package audio1;
 import javax.sound.midi.Instrument;
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
@@ -28,6 +29,23 @@ public class MidiTest {
 	        
 	      } catch (MidiUnavailableException e) {}
 	      */
+		try {
+			// Get synthesizer for sequencer to send notes to
+			Synthesizer syn = MidiSystem.getSynthesizer();
+			syn.open();
+			//get and load default instrument and channel lists
+			Instrument[] i = syn.getDefaultSoundbank().getInstruments();
+			MidiChannel[] channels = syn.getChannels();
+			
+			syn.loadInstrument(i[127]);
+			channels[0].noteOn(60, 100);//On channel 0, play note number 60 with velocity 100 
+	        channels[1].noteOn(64, 100);
+	        channels[2].noteOn(67, 100);
+		try { Thread.sleep(10000); // wait time in milliseconds to control duration
+        } catch( InterruptedException e ) { }
+        // channels[0].noteOff(100);//turn of the note
+        
+      } catch (MidiUnavailableException e) {}
 		
 		
 		
