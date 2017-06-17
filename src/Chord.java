@@ -11,6 +11,10 @@ public class Chord {
 	private ArrayList<MusicNote> chord;
 	private double time;
 	
+	public Chord(String str) {
+		
+	}
+	
 	public Chord(MusicNote note1, MusicNote note2, MusicNote note3, MusicNote note4, MusicNote note5, double time) {
 		chord = new ArrayList<>();
 		chord.add(note1);

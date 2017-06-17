@@ -78,23 +78,6 @@ public class Window {
 
 		// Method to execute, initial delay, subsequent delay, time unit
 		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 1L, TimeUnit.NANOSECONDS);
-		
-		// int delay = 1000/60;
-/*
-		Timer timer = new Timer(1, new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				panel.repaint();
-			}
-			
-		});
-		timer.start();	
-		frame.setVisible(true);
-	}
-	
-*/
 		frame.setVisible(true);
 	}
 		
