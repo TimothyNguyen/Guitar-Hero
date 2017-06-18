@@ -1,25 +1,26 @@
 package display;
 
+import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-public class Window {
+import objects.GuitarBoard;
+
+public class Window extends JFrame{
 
 	private static final boolean[] theKeys = {false, false, false, false, false, false};
+	private static int boardWidth = 1450, boardHeight = 800;
 	
-	public static void display() {
+	public Window () {
 		JFrame frame = new JFrame("Guitar Hero");				// frame, has a title of Guitar Hero
-		GamePanel panel = new GamePanel();						// Set up GamePanel (class that we created)
+		GuitarBoard guitar = new GuitarBoard();					// Set up GamePanel (class that we created)
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setContentPane(panel);
-		frame.setFocusable(true); // get the keylistener to work
-		frame.setResizable(true);
-		frame.pack();
-		
+		frame.setSize(boardWidth, boardHeight);
 		// Key events
 		frame.addKeyListener(new KeyListener() {
 			@Override
@@ -73,6 +74,7 @@ public class Window {
 			}
 		});
 		
+		frame.add(guitar, BorderLayout.CENTER);
 		
 		/**
 		 * Used to execute code after a given delay
@@ -83,23 +85,32 @@ public class Window {
 		ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10);
 
 		// Method to execute, initial delay, subsequent delay, time unit
-		executor.scheduleAtFixedRate(new RepaintBoard(panel), 0L, 1L, TimeUnit.NANOSECONDS);
+		executor.scheduleAtFixedRate(new RepaintBoard(guitar), 0L, 1L, TimeUnit.NANOSECONDS);
+		
 		frame.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
-		display();	
+		new Window();
 	}
 		
+	public static int getBoardWidth() {
+		return boardWidth;
+	}
+	
+	public static int getBoardHeight() {
+		return boardHeight;
+	}
+	
 	public static boolean[] getList() {
 		return theKeys;
 	}
 }
 
 class RepaintBoard implements Runnable {
-	GamePanel thePanel;
+	JComponent thePanel;
 
-	public RepaintBoard(GamePanel thePanel){
+	public RepaintBoard(JComponent thePanel){
 		this.thePanel = thePanel;
 	}
 

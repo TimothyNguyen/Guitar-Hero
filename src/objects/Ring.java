@@ -15,5 +15,9 @@ public class Ring {
 		this.color = color;
 	}
 
+	public Ellipse2D.Double getEllipse() {
+		return ellipse;
+	}
+	
 	public Color getColor() { return color; }
 }

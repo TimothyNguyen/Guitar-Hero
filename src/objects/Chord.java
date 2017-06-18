@@ -47,6 +47,10 @@ public class Chord {
 		this.time = time;
 	}
 	
+	public ArrayList<MusicNote> getChord() {
+		return chord;
+	}
+	
 	public double getTimeToStart() {
 		return time;
 	}

@@ -18,6 +18,10 @@ public class GuitarString {
 	
 	public Color getColor() { return color; }
 
+	public Rectangle2D.Double getString() {
+		return string;
+	}
+	
 	public int getX() {
 		return x;
 	}
