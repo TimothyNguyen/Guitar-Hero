@@ -2,8 +2,8 @@ package song_list;
 
 import java.awt.Color;
 
-import objects.Chord;
-import objects.MusicNote;
+import instruments.guitar.Chord;
+import instruments.guitar.MusicNote;
 
 public class NewSong extends Song {
 

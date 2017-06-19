@@ -4,8 +4,8 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import data_structures.ResizingArray;
-import objects.Chord;
-import objects.MusicNote;
+import instruments.guitar.Chord;
+import instruments.guitar.MusicNote;
 
 public class QuanSong extends Song{
 
@@ -17,7 +17,7 @@ public class QuanSong extends Song{
 	public QuanSong() {
 		writeSong(200);
 	}
-
+	
 	private void writeSong(int numChords) {
 		for(int i = 0; i < numChords; i++) {
 			if(chooseRandomChord().equals("CMAJ")) {

@@ -1,4 +1,4 @@
-package objects;
+package instruments;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -15,6 +15,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JComponent;
 
 import display.Window;
+import instruments.guitar.Bars;
+import instruments.guitar.GuitarString;
+import instruments.guitar.Ring;
 
 public class GuitarBoard extends JComponent {
 

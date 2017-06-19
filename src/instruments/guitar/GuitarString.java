@@ -1,4 +1,4 @@
-package objects;
+package instruments.guitar;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;

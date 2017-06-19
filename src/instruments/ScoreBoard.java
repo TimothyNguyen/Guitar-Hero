@@ -1,4 +1,4 @@
-package objects;
+package instruments;
 
 import java.awt.geom.Rectangle2D;
 

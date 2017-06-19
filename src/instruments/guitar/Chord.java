@@ -1,4 +1,4 @@
-package objects;
+package instruments.guitar;
 
 import java.util.ArrayList;
 
