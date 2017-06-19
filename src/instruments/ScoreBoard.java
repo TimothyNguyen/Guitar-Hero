@@ -5,7 +5,7 @@ import java.awt.geom.Rectangle2D;
 
 public class ScoreBoard{
 
-	private int score;
+	private static int score;
 	
 	public ScoreBoard() {
 		score = 0;
@@ -16,7 +16,7 @@ public class ScoreBoard{
 	}
 	
 
-	public void setScore(int s) {
+	public static void setScore(int s) {
 		score += s;
 	}
 	

@@ -14,7 +14,7 @@ public class Bars {
 	private int width, height;
 	private double x1, x2;
 	private double speed = 1;
-	public boolean onScreen = true;
+	// public boolean onScreen = true;
 
 	public Bars(int width, int height) {
 		barLines = new ArrayList<>();
@@ -36,13 +36,11 @@ public class Bars {
 
 	public void move() {
 		for(int i = 0; i < barLines.size(); i++) {
-			if(onScreen) {
-				double y1 = barLines.get(i).getY1();
-				double y2 = barLines.get(i).getY2();
-				barLines.get(i).setLine(x1, y1 + speed * 13.5, x2, y2 + speed * 13.5);
-				if(y1 > height) {
-					barLines.get(i).setLine(x1, 50, y1, 50);
-				}
+			double y1 = barLines.get(i).getY1();
+			double y2 = barLines.get(i).getY2();
+			barLines.get(i).setLine(x1, y1 + (speed * 5), x2, y2 + (speed * 5));
+			if(y1 > height) {
+				barLines.get(i).setLine(x1, 50, y1, 50);
 			}
 		}
 	}

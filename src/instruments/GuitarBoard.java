@@ -10,6 +10,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
@@ -18,6 +19,7 @@ import display.Window;
 import instruments.guitar.Bars;
 import instruments.guitar.GuitarString;
 import instruments.guitar.Ring;
+import song_list.Song;
 
 public class GuitarBoard extends JComponent {
 
@@ -39,7 +41,7 @@ public class GuitarBoard extends JComponent {
 	private Ring blue;
 	private Ring orange;
 	private ScoreBoard board;
-
+	private ArrayList<Song> songList;
 
 	public GuitarBoard() {
 		this.width = 300;
@@ -62,6 +64,7 @@ public class GuitarBoard extends JComponent {
 		blue = new Ring(x + 187, Color.BLUE);
 		orange = new Ring(x + 247, Color.ORANGE);
 		board = new ScoreBoard();
+		songList = Window.getSongList();
 	}
 
 	public int getGuitarX(){
@@ -94,42 +97,46 @@ public class GuitarBoard extends JComponent {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		/*
-		for(int i = 0; i < chordList.size(); i++) {
-			Chord chord = chordList.get(i);
-			if(chord.getY() <= 730) {
-				if(estimatedTime >= chord.getTimeToStart()) {
-					chord.render(g);
-				}
-			}
-			// System.out.println(estimatedTime);
-			estimatedTime++;
 
-		}
-		*/
-		
 		//Rendering the scoreboard
 		settings.setColor(Color.BLUE);
 		settings.setFont(new Font("TimesRoman", Font.BOLD, 40));
 		settings.drawString("Score: " + board.getScore(),55, 50); 
-		
+
 		/**
 		 * Here to render the rings
 		 */
-		
+		boolean[][] arr = Window.getGuitarKeyList();
 		Stroke stroke = new BasicStroke(10, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
 		settings.setStroke(stroke);
 		settings.setColor(red.getColor());
+		if(arr[0][0]) { 
+			settings.fill(red.getEllipse());
+		}
 		settings.draw(red.getEllipse());
 		settings.setColor(yellow.getColor());
+		if(arr[1][0]) {
+			settings.fill(yellow.getEllipse());
+		}
 		settings.draw(yellow.getEllipse());
 		settings.setColor(green.getColor());
+		if(arr[2][0]) {
+			settings.fill(green.getEllipse());
+		}
 		settings.draw(green.getEllipse());
 		settings.setColor(blue.getColor());
+		if(arr[3][0]) {
+			settings.fill(blue.getEllipse());
+		}
 		settings.draw(blue.getEllipse());
 		settings.setColor(orange.getColor());
+		if(arr[4][0]) {
+			settings.fill(orange.getEllipse());
+		}
 		settings.draw(orange.getEllipse());
+		Song song = songList.get(0);
+		song.render(settings);
+		
 		/**
 		 * Render the graphics for the guitar board
 		 */
@@ -143,12 +150,10 @@ public class GuitarBoard extends JComponent {
 		 */
 		settings.setPaint(bars.getColor());
 		for(Line2D.Double bar : bars.getBarLines()) {
-			if(bars.onScreen) {
-				bars.move();
-				settings.draw(bar);
-			}
+			bars.move();
+			settings.draw(bar);
 		}
-		
+
 		/**
 		 * Here to render the strings
 		 */
@@ -164,6 +169,5 @@ public class GuitarBoard extends JComponent {
 		settings.draw(str4.getString());
 		settings.setPaint(str5.getColor());
 		settings.draw(str5.getString());
-	}
-	
+	}	
 }
