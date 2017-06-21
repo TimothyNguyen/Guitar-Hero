@@ -106,31 +106,31 @@ public class GuitarBoard extends JComponent {
 		/**
 		 * Here to render the rings
 		 */
-		boolean[][] arr = Window.getGuitarKeyList();
+		boolean[] arr = Window.getGuitarKeyList();
 		Stroke stroke = new BasicStroke(10, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
 		settings.setStroke(stroke);
 		settings.setColor(red.getColor());
-		if(arr[0][0]) { 
+		if(arr[0]) { 
 			settings.fill(red.getEllipse());
 		}
 		settings.draw(red.getEllipse());
 		settings.setColor(yellow.getColor());
-		if(arr[1][0]) {
+		if(arr[1]) {
 			settings.fill(yellow.getEllipse());
 		}
 		settings.draw(yellow.getEllipse());
 		settings.setColor(green.getColor());
-		if(arr[2][0]) {
+		if(arr[2]) {
 			settings.fill(green.getEllipse());
 		}
 		settings.draw(green.getEllipse());
 		settings.setColor(blue.getColor());
-		if(arr[3][0]) {
+		if(arr[3]) {
 			settings.fill(blue.getEllipse());
 		}
 		settings.draw(blue.getEllipse());
 		settings.setColor(orange.getColor());
-		if(arr[4][0]) {
+		if(arr[4]) {
 			settings.fill(orange.getEllipse());
 		}
 		settings.draw(orange.getEllipse());

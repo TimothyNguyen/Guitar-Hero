@@ -14,7 +14,7 @@ public class Song {
 	private ArrayList<MusicNote> chord;
 	private long startTime;
 	private long estimatedTime;
-	private boolean[][] guitar_keys;
+	private boolean[] guitar_keys;
 	
 	/**
 	 * 
@@ -55,7 +55,7 @@ public class Song {
 			boolean allNotesUsed = true;
 			for(int j = 0; j < chord.getChord().size(); j++) {
 				int noteNum = chord.getChord().get(j).getColorNum();
-				if((guitar_keys[j][0] && guitar_keys[j][1])) {
+				if(!(guitar_keys[noteNum])) {
 					return false;
 				}
 			}
@@ -81,14 +81,14 @@ public class Song {
 	}
 	
 	private boolean checkLocation(Chord chord) {
-		return (chord.getY() >= 670 && chord.getY() <= 700 && Window.getGuitarKeyList()[5][0]);
+		return (chord.getY() >= 670 && chord.getY() <= 700 && Window.getGuitarKeyList()[5]);
 	}
 	
 	private void setGuitarKeysToTrue() {
-		guitar_keys[0][1] = true;
-		guitar_keys[1][1] = true;
-		guitar_keys[2][1] = true;
-		guitar_keys[3][1] = true;
-		guitar_keys[4][1] = true;
+		guitar_keys[0] = true;
+		guitar_keys[1] = true;
+		guitar_keys[2] = true;
+		guitar_keys[3] = true;
+		guitar_keys[4] = true;
 	}
 }
