@@ -17,8 +17,12 @@ public class Audio extends JComponent{
 	private int velocity;
 	private double duration;
 	
-	public Audio() {
-		
+	public Audio(ArrayList<MusicNote> chord) {
+		this.chord = chord;
+		for(int i = 0; i < chord.size(); i++) {
+			this.velocity = chord.get(i).getVelocity();
+			this.duration = chord.get(i).getDuration();
+		}
 	}
 	
 	public Audio(ArrayList<MusicNote> chord, int velocity, double duration) {

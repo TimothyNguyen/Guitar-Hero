@@ -163,7 +163,7 @@ public class MusicNote {
 		return duration;
 	}
 
-	public double getVelocity() {
+	public int getVelocity() {
 		return velocity;
 	}
 

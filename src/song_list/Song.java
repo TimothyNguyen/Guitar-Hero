@@ -3,6 +3,7 @@ package song_list;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import audio.Audio;
 import display.Window;
 import instruments.ScoreBoard;
 import instruments.guitar.Chord;
@@ -11,7 +12,6 @@ import instruments.guitar.MusicNote;
 public class Song {	
 
 	private ArrayList<Chord> chordList;
-	private ArrayList<MusicNote> chord;
 	private long startTime;
 	private long estimatedTime;
 	private boolean[] guitar_keys;
@@ -25,6 +25,17 @@ public class Song {
 		startTime = System.currentTimeMillis();
 		estimatedTime = System.currentTimeMillis() - startTime;
 		guitar_keys = Window.getGuitarKeyList();
+	}
+	
+	public void audio() {
+		for(int i = 0; i < getChordList().size(); i++)  {
+			Chord chord = getChordList().get(i);
+			if(checkNotesPressed(chord)) {
+				Audio sound_chord = new Audio(chord.getChord());
+				sound_chord.playNote();
+			}
+		}
+			
 	}
 	
 	public void render(Graphics2D g) {

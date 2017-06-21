@@ -186,4 +186,8 @@ public class GuitarBoard extends JComponent {
 		settings.setPaint(str5.getColor());
 		settings.draw(str5.getString());
 	}	
+	
+	public Song getSong() {
+		return songList.get(0);
+	}
 }

@@ -26,7 +26,6 @@ public class Window extends JFrame{
 		addSongs();
 		JFrame frame = new JFrame("Guitar Hero");				// frame, has a title of Guitar Hero
 		GuitarBoard guitar = new GuitarBoard();					// Set up GamePanel (class that we created)
-		// Audio audio = new Audio();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(boardWidth, boardHeight);
 		// Key events
@@ -83,7 +82,6 @@ public class Window extends JFrame{
 		});
 		
 		frame.add(guitar);
-		// frame.add(audio);
 		/**
 		 * Used to execute code after a given delay
 		 * The attribute is corePoolSize - the number of threads to keep in 
@@ -94,7 +92,7 @@ public class Window extends JFrame{
 
 		// Method to execute, initial delay, subsequent delay, time unit
 		executor.scheduleAtFixedRate(new RepaintBoard(guitar), 0L, 1L, TimeUnit.NANOSECONDS);
-		// executor.scheduleAtFixedRate(new PlayAudio(audio), 0L, 1L, TimeUnit.NANOSECONDS);
+		executor.scheduleAtFixedRate(new PlayAudio(guitar.getSong()), 0L, 1L, TimeUnit.NANOSECONDS);
 		frame.setVisible(true);
 	}
 	
@@ -128,22 +126,22 @@ public class Window extends JFrame{
 	}
 	
 }
-/*
-class PlayAudio implements Runnable {
-	Audio audioPlayer;
 
-	public PlayAudio(Audio audioPlayer) {
+class PlayAudio implements Runnable {
+	Song audioPlayer;
+
+	public PlayAudio(Song audioPlayer) {
 		this.audioPlayer = audioPlayer;
 	}
 	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		audioPlayer.audio();
 	}
 	
 }
-*/
+
 
 class RepaintBoard implements Runnable {
 	JComponent thePanel;
