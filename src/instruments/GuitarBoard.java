@@ -110,30 +110,46 @@ public class GuitarBoard extends JComponent {
 		Stroke stroke = new BasicStroke(10, BasicStroke.CAP_BUTT, BasicStroke.CAP_ROUND, 0);
 		settings.setStroke(stroke);
 		settings.setColor(red.getColor());
-		if(arr[0]) { 
-			settings.fill(red.getEllipse());
-		}
 		settings.draw(red.getEllipse());
+		
 		settings.setColor(yellow.getColor());
-		if(arr[1]) {
-			settings.fill(yellow.getEllipse());
-		}
 		settings.draw(yellow.getEllipse());
+		
 		settings.setColor(green.getColor());
-		if(arr[2]) {
-			settings.fill(green.getEllipse());
-		}
 		settings.draw(green.getEllipse());
+		
 		settings.setColor(blue.getColor());
-		if(arr[3]) {
-			settings.fill(blue.getEllipse());
-		}
 		settings.draw(blue.getEllipse());
+		
 		settings.setColor(orange.getColor());
-		if(arr[4]) {
-			settings.fill(orange.getEllipse());
-		}
 		settings.draw(orange.getEllipse());
+		
+		if(arr[0]) { 
+			settings.setColor(red.getColor());
+			settings.fill(red.getEllipse());
+			settings.draw(red.getEllipse());
+		}
+		if(arr[1]) {
+			settings.setColor(yellow.getColor());
+			settings.fill(yellow.getEllipse());
+			settings.draw(yellow.getEllipse());
+		}
+		if(arr[2]) {
+			settings.setColor(green.getColor());
+			settings.fill(green.getEllipse());
+			settings.draw(green.getEllipse());
+		}
+		if(arr[3]) {
+			settings.setColor(blue.getColor());
+			settings.fill(blue.getEllipse());
+			settings.draw(blue.getEllipse());
+		}
+		if(arr[4]) {
+			settings.setColor(orange.getColor());
+			settings.fill(orange.getEllipse());
+			settings.draw(orange.getEllipse());
+		}
+		
 		Song song = songList.get(0);
 		song.render(settings);
 		

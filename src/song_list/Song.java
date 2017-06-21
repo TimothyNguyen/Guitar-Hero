@@ -36,7 +36,7 @@ public class Song {
 				if(i > -1) { // this to prevent accessing -1
 					i--; 
 				}
-			} else if(chord.getY() <= 730) {
+			} else if(chord.getY() <= 750) {
 				if(getEstimatedTime() >= chord.getTimeToStart()) {
 					chord.drawChords(g);
 				}
@@ -45,14 +45,11 @@ public class Song {
 				i--;
 			}
 			incrementEstimatedTime();
-			//System.out.println(getEstimatedTime());
 		}
 	}
 	
 	private boolean checkNotesPressed(Chord chord) {
 		if(checkLocation(chord)) {
-			setGuitarKeysToTrue();
-			boolean allNotesUsed = true;
 			for(int j = 0; j < chord.getChord().size(); j++) {
 				int noteNum = chord.getChord().get(j).getColorNum();
 				if(!(guitar_keys[noteNum])) {
@@ -81,14 +78,6 @@ public class Song {
 	}
 	
 	private boolean checkLocation(Chord chord) {
-		return (chord.getY() >= 670 && chord.getY() <= 700 && Window.getGuitarKeyList()[5]);
-	}
-	
-	private void setGuitarKeysToTrue() {
-		guitar_keys[0] = true;
-		guitar_keys[1] = true;
-		guitar_keys[2] = true;
-		guitar_keys[3] = true;
-		guitar_keys[4] = true;
+		return (chord.getY() >= 670 && chord.getY() <= 730 && Window.getGuitarKeyList()[5]);
 	}
 }
